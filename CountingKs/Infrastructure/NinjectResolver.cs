@@ -1,4 +1,5 @@
 ﻿using CountingKs.Data;
+using CountingKs.Services;
 using Ninject;
 using Ninject.Extensions.ChildKernel;
 using System;
@@ -51,6 +52,8 @@ namespace CountingKs.Infrastructure
         {
             kernel.Bind<ICountingKsRepository>().To<CountingKsRepository>().InSingletonScope();
             kernel.Bind<CountingKsContext>().To<CountingKsContext>().InSingletonScope();
+            kernel.Bind<ICountingKsIdentityService>().To<CountingKsIdentityService>().InSingletonScope();
+
             return kernel;
         }
     }
